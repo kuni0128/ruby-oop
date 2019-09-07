@@ -6,14 +6,14 @@ RSpec.describe Gear do
   describe '#ratio' do
     subject { Gear.new(chainring, cog).ratio }
 
-    context 'hoge' do
+    context 'when large gear' do
       let(:chainring) { 52 }
       let(:cog) { 11 }
 
       it { is_expected.to eq 4.7272727272727275 }
     end
 
-    context 'fuga' do
+    context 'when small gear' do
       let(:chainring) { 30 }
       let(:cog) { 27 }
 
