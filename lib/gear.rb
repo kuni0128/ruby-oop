@@ -14,6 +14,10 @@ class Gear
   end
 
   def gear_inches
-    ratio * (rim + (tire * 2))
+    ratio * wheel_diameter
+  end
+
+  def wheel_diameter
+    rim + (tire * 2)
   end
 end
