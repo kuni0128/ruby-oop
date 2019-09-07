@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require_relative '../lib/gear.rb'
+require_relative '../lib/wheel.rb'
 
 RSpec.describe Gear do
-  let(:gear) { Gear.new(chainring, cog, rim, tire) }
+  let(:gear) { Gear.new(chainring, cog, wheel) }
+  let(:wheel) { Wheel.new(26, 1.5) }
 
   describe '#ratio' do
     subject { gear.ratio }
@@ -11,8 +13,6 @@ RSpec.describe Gear do
     context 'when large gear' do
       let(:chainring) { 52 }
       let(:cog) { 11 }
-      let(:rim) { 26 }
-      let(:tire) { 1.5 }
 
       it { is_expected.to eq 4.7272727272727275 }
     end
@@ -20,8 +20,6 @@ RSpec.describe Gear do
     context 'when small gear' do
       let(:chainring) { 30 }
       let(:cog) { 27 }
-      let(:rim) { 24 }
-      let(:tire) { 1.25 }
 
       it { is_expected.to eq 1.1111111111111112 }
     end
@@ -33,8 +31,6 @@ RSpec.describe Gear do
     context 'when large gear' do
       let(:chainring) { 52 }
       let(:cog) { 11 }
-      let(:rim) { 26 }
-      let(:tire) { 1.5 }
 
       it { is_expected.to eq 137.0909090909091 }
     end
@@ -42,10 +38,8 @@ RSpec.describe Gear do
     context 'when small gear' do
       let(:chainring) { 30 }
       let(:cog) { 27 }
-      let(:rim) { 24 }
-      let(:tire) { 1.25 }
 
-      it { is_expected.to eq 29.444444444444446 }
+      it { is_expected.to eq 32.22222222222222 }
     end
   end
 end
